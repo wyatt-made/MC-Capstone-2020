@@ -3,4 +3,8 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="Speech_To_Text_Display">Speech To Text Display</string>
+    <string name="Hamburger">+</string>
+    <string name="Connect_More">+</string>
+    <string name="Transcribe_Text">Transcribed Text</string>
+    <string name="TODO">TODO</string>
 </resources>
