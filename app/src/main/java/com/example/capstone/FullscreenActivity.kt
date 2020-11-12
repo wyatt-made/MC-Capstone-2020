@@ -1,14 +1,16 @@
 package com.example.capstone
 
-import androidx.appcompat.app.AppCompatActivity
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.provider.Settings
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -18,6 +20,7 @@ class FullscreenActivity : AppCompatActivity() {
     private lateinit var fullscreenContent: TextView
     private lateinit var fullscreenContentControls: LinearLayout
     private val hideHandler = Handler()
+
 
     @SuppressLint("InlinedApi")
     private val hidePart2Runnable = Runnable {
@@ -78,7 +81,6 @@ class FullscreenActivity : AppCompatActivity() {
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById<Button>(R.id.Speech_To_Text_Display).setOnTouchListener(delayHideTouchListener)
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
@@ -149,4 +151,11 @@ class FullscreenActivity : AppCompatActivity() {
          */
         private const val UI_ANIMATION_DELAY = 300
     }
+
+    fun bluetooth(view: View) {
+        val intentOpenBluetoothSettings = Intent()
+        intentOpenBluetoothSettings.action = Settings.ACTION_BLUETOOTH_SETTINGS
+        startActivity(intentOpenBluetoothSettings)
+    }
+
 }
