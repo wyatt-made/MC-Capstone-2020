@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CapstoneV2</string>
+    <string name="Connectivity">Disconnected</string>
 </resources>

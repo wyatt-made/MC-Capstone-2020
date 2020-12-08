@@ -35,11 +35,24 @@
                 android:layout_height="350dp"
                 android:background="@drawable/border"
                 android:gravity="center"
-                android:text="Blank text for now"
+                android:text="Transcribed Text"
                 android:layout_gravity="center"
-                android:autoSizeMinTextSize="20dp"
-                android:autoSizeTextType="uniform"
+                android:textSize="20dp"
                 />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Connectivity"
+            android:layout_gravity="bottom|center"
+            android:textSize="30dp"
+            />
+        <Button
+            android:id="@+id/Listen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:text="Listen" />
 
     </FrameLayout>
 

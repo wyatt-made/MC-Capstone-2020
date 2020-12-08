@@ -12,7 +12,7 @@
         android:gravity="center|top"
         android:keepScreenOn="true"
         android:text="Speech to Text Display"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <FrameLayout
@@ -32,14 +32,28 @@
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="600dp"
-                android:layout_height="250dp"
+                android:layout_height="230dp"
                 android:background="@drawable/border"
                 android:gravity="center"
-                android:text="Blank text for now"
+                android:text="Transcribed Text"
+                android:textSize="30dp"
                 android:layout_gravity="center"
-                android:autoSizeMinTextSize="20dp"
-                android:autoSizeTextType="uniform"
                 />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Connectivity"
+            android:layout_gravity="bottom|center"
+            android:textSize="30dp"
+            />
+        <Button
+            android:id="@+id/Listen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:text="Listen" />
 
     </FrameLayout>
 
