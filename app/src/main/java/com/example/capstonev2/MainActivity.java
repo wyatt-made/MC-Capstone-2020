@@ -13,17 +13,21 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.speech.RecognizerIntent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.BreakIterator;
+
 public class MainActivity extends AppCompatActivity
 {
     public static final Integer RecordAudioRequestCode = 1;
     private spee speechRecognizer;
-    private EditText editText;
     private ImageView micButton;
+    Button Transcribe;
+    TextView Listen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,10 +48,17 @@ public class MainActivity extends AppCompatActivity
         this.registerReceiver(mReceiver, filter);
     }
 
-    public final void bluetooth( View view) {
+    public final void bluetooth ( View view) {
         Intent intentOpenBluetoothSettings = new Intent();
         intentOpenBluetoothSettings.setAction("android.settings.BLUETOOTH_SETTINGS");
         this.startActivity(intentOpenBluetoothSettings);
+    }
+
+    public final void ListenButton (View view)
+    {
+        Listen = (TextView)findViewById(R.id.textView2);
+        Transcribe = (Button)findViewById(R.id.Listener);
+        Listen.setText("Listening...");
     }
 
     public void setSpeechRecognizer(spee speechRecognizer) {
