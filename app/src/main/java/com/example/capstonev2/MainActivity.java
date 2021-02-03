@@ -24,16 +24,30 @@ import java.text.BreakIterator;
 public class MainActivity extends AppCompatActivity
 {
     public static final Integer RecordAudioRequestCode = 1;
-    private spee speechRecognizer;
-    private ImageView micButton;
-    Button Transcribe;
-    TextView Listen;
+    TextView speechText;
+    Button speechButton;
+
+    private static final int RECOGNIZER_RESULT = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        speechButton = findViewById(R.id.Listener);
+        speechText = findViewById(R.id.textView2);
+
+        speechButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View view) {
+                Intent speechIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                speechIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                startActivityForResult(speechIntent,RECOGNIZER_RESULT);
+            }
+        });
 
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null)
@@ -46,24 +60,14 @@ public class MainActivity extends AppCompatActivity
         filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED);
         filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
         this.registerReceiver(mReceiver, filter);
+
+
     }
 
     public final void bluetooth ( View view) {
         Intent intentOpenBluetoothSettings = new Intent();
         intentOpenBluetoothSettings.setAction("android.settings.BLUETOOTH_SETTINGS");
         this.startActivity(intentOpenBluetoothSettings);
-    }
-
-    public final void ListenButton (View view)
-    {
-        Listen = (TextView)findViewById(R.id.textView2);
-        Transcribe = (Button)findViewById(R.id.Listener);
-        Listen.setText("Listening...");
-    }
-
-    public void setSpeechRecognizer(spee speechRecognizer) {
-        this.speechRecognizer = speechRecognizer;
-        final Intent speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
     }
 
     private final BroadcastReceiver mReceiver = new BroadcastReceiver()
@@ -86,4 +90,14 @@ public class MainActivity extends AppCompatActivity
             }
         }
     };
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == RECOGNIZER_RESULT && resultCode == RESULT_OK) {
+            String[] matches = data.getStringArrayExtra (RecognizerIntent.EXTRA_RESULTS);
+            speechText.setText(matches.length);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 }
