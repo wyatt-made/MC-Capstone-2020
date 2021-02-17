@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|top"
+        android:keepScreenOn="true"
+        android:text="@string/STTD"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <Button
+            android:id="@+id/Connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:onClick="bluetooth"
+            android:text="@string/Connect" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:text="@string/Transcribed"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Connectivity"
+            android:layout_gravity="bottom|center"
+            android:textSize="30sp"
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#F9F8FA"
+            android:src="@drawable/ic_mic_black_off"
+            android:layout_gravity="bottom|left"
+            android:id="@+id/button"/>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

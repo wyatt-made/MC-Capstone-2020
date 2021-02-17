@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CapstoneV3</string>
+    <string name="Connectivity">Disconnected</string>
+    <string name="Listen">Listen</string>
+    <string name="Transcribed">Transcribed Text</string>
+    <string name="STTD">Speech to Text Display</string>
+    <string name="Connect">+</string>
+</resources>
