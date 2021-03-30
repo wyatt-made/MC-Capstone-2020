@@ -5,15 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center|top"
-        android:keepScreenOn="true"
-        android:text="@string/STTD"
-        android:textSize="40sp"
-        android:textStyle="bold" />
-
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
@@ -22,16 +13,18 @@
 
         <Button
             android:id="@+id/Connect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="bottom|end"
+            android:background="@drawable/rounded_corner"
             android:onClick="bluetooth"
             android:text="@string/Connect" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="350dp"
-            android:layout_height="350dp"
+            android:layout_height="550dp"
             android:background="@drawable/border"
             android:gravity="center"
             android:text="@string/Transcribed"
